@@ -1,0 +1,28 @@
+{% extends 'gym_app/base.html' %}
+
+{% block title %}Inicio - Gimnasio{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Bienvenido a nuestro Gimnasio</h1>
+    <p class="lead">Tu camino hacia una vida más saludable comienza aquí.</p>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Miembros</h2>
+            <p>Gestiona los miembros del gimnasio.</p>
+            <a class="btn btn-primary" href="{% url 'member_list' %}">Ver Miembros</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Entrenadores</h2>
+            <p>Conoce a nuestros profesionales.</p>
+            <a class="btn btn-primary" href="{% url 'trainer_list' %}">Ver Entrenadores</a>
+        </div>
+        <div class="col-md-4">
+            <h2>Clases</h2>
+            <p>Explora nuestras clases disponibles.</p>
+            <a class="btn btn-primary" href="{% url 'class_list' %}">Ver Clases</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

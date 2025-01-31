@@ -1,0 +1,32 @@
+{% extends 'gym_app/base.html' %}
+
+{% block title %}Miembros - Gimnasio{% endblock %}
+
+{% block content %}
+<h2>Lista de Miembros</h2>
+<a href="{% url 'add_member' %}" class="btn btn-primary mb-3">Agregar Miembro</a>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Tipo de Membresía</th>
+                <th>Fecha de Ingreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.name }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.phone }}</td>
+                <td>{{ member.membership_type }}</td>
+                <td>{{ member.join_date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

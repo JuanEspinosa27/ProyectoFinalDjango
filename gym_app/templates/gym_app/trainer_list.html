@@ -1,0 +1,32 @@
+{% extends 'gym_app/base.html' %}
+
+{% block title %}Entrenadores - Gimnasio{% endblock %}
+
+{% block content %}
+<h2>Lista de Entrenadores</h2>
+<a href="{% url 'add_trainer' %}" class="btn btn-primary mb-3">Agregar Entrenador</a>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Especialización</th>
+                <th>Experiencia</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trainer in trainers %}
+            <tr>
+                <td>{{ trainer.name }}</td>
+                <td>{{ trainer.specialization }}</td>
+                <td>{{ trainer.experience }} años</td>
+                <td>{{ trainer.phone }}</td>
+                <td>{{ trainer.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

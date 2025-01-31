@@ -1,0 +1,42 @@
+{% extends 'gym_app/base.html' %}
+
+{% block title %}Resultados de Búsqueda - Gimnasio{% endblock %}
+
+{% block content %}
+<h2>Resultados de búsqueda para "{{ query }}"</h2>
+
+<h3>Miembros</h3>
+{% if members %}
+    <ul>
+    {% for member in members %}
+        <li>{{ member.name }} - {{ member.email }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron miembros.</p>
+{% endif %}
+
+<h3>Entrenadores</h3>
+{% if trainers %}
+    <ul>
+    {% for trainer in trainers %}
+        <li>{{ trainer.name }} - {{ trainer.specialization }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron entrenadores.</p>
+{% endif %}
+
+<h3>Clases</h3>
+{% if classes %}
+    <ul>
+    {% for class in classes %}
+        <li>{{ class.name }} - {{ class.trainer.name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron clases.</p>
+{% endif %}
+
+<a href="{% url 'search' %}" class="btn btn-primary">Nueva Búsqueda</a>
+{% endblock %}

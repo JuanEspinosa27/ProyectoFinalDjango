@@ -1,0 +1,32 @@
+{% extends 'gym_app/base.html' %}
+
+{% block title %}Clases - Gimnasio{% endblock %}
+
+{% block content %}
+<h2>Lista de Clases</h2>
+<a href="{% url 'add_class' %}" class="btn btn-primary mb-3">Agregar Clase</a>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Entrenador</th>
+                <th>Horario</th>
+                <th>Capacidad</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for class in classes %}
+            <tr>
+                <td>{{ class.name }}</td>
+                <td>{{ class.trainer.name }}</td>
+                <td>{{ class.schedule }}</td>
+                <td>{{ class.capacity }}</td>
+                <td>{{ class.description }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
